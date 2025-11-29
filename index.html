@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Random Mode Generator</title>
+    <style>
+        .button {
+          background-color: #f7ff05;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 24px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        h1{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        .container {
+            height: 0px;
+            position: relative;
+            border: 1px solid white;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        </style>
+</head>
+
+
+
+<body>
+
+    <h1>Random Mode Generator!</h1>
+
+    <div class="container">
+        <div class="center">
+            <button type = "button" onclick="showAlert()">Click Here to Generate</button> 
+        </div>
+    </div>
+
+    <h3 id="demo"></h3>
+
+<script>
+function showAlert(){
+    let root = ["C", "D", "E", "F", "G", "A", "B"];
+    let accident = [" ", "#", "b"]
+    let mode = ["Ionian", "Dorian", "Phrygian", "Lydian", "Mixolydian", "Aolian", "Locrian"]
+
+    let note = root[Math.floor(Math.random() * 7)] + accident[Math.floor(Math.random() * 3)]
+
+    if (note == "E#" || note == "B#" || note == "Fb" || note == "Cb"){
+        console.log("hit");
+        note = root[Math.floor(Math.random() * 7)];
+    }
+
+    document.getElementById("demo").innerHTML = note + " " + mode[Math.floor(Math.random() * 7)];
+}
+</script>
+
+</body>
+</html>
